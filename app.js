@@ -30,7 +30,9 @@ const useremail = document.querySelector('.email')
 const userpassword = document.querySelector('.password')
 
 registerAccount.addEventListener('click', () => {
-  set(ref(db, 'integuys/account/' + name.value), {
+  const userID = generateUUID()
+  set(ref(db, 'integuys/account/' + userID), {
+    id: userID,
     username: name.value,
     email: useremail.value,
     userpassword: userpassword.value,
@@ -41,3 +43,13 @@ registerAccount.addEventListener('click', () => {
   userpassword.value = ''
   alert('Account Created Successfully')
 })
+
+function generateUUID() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+    var r = (Math.random() * 16) | 0,
+      v = c == 'x' ? r : (r & 0x3) | 0x8
+    return v.toString(16)
+  })
+}
+
+// Generate a UUID
