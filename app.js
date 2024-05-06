@@ -30,7 +30,7 @@ const useremail = document.querySelector('.email')
 const userpassword = document.querySelector('.password')
 
 registerAccount.addEventListener('click', () => {
-  set(ref(db, 'integuys/accounts'), {
+  set(ref(db, 'integuys/account/' + name.value), {
     username: name.value,
     email: useremail.value,
     userpassword: userpassword.value,
